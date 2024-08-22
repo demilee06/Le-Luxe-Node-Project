@@ -2,8 +2,6 @@ import express from 'express'
 import{getUsers,insertUser,getUser,updateUser,deleteUser, loginUser} from '../controller/userController.js'
 import { checkUser } from '../middleware/authenticate.js'
 
-
-
 const userRouter = express.Router()
 
 userRouter.get('/', getUsers)

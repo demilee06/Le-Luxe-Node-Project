@@ -3,9 +3,9 @@ import{getProducts,getProduct,addProduct,updateProduct} from '../controller/prod
 
 const productRouter = express.Router()
 
-productRouter.get('/products',getProducts)
-productRouter.get('/products/:id',getProduct)
-productRouter.post('/addProducts',addProduct)
+productRouter.get('/',getProducts)
+productRouter.get('/:id',getProduct)
+productRouter.post('/addProduct',addProduct)
 productRouter.patch('/update/:id',updateProduct)
 
 export{productRouter}
