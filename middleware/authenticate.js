@@ -33,8 +33,10 @@ const checkUser = async (req,res,next) => {
             message: ('An Error has occured')
         })
     }
-      
 }
+
+      
+
 
 const verifyAToken =(req,res,next)=>{
     let {cookie} = req.headers //acts as a conditional statement
