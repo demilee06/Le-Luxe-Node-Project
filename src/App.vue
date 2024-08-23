@@ -10,7 +10,7 @@ import FooterComp from './components/FooterComp.vue';
 export default{
   components:{
     NavBarComp,
-   FooterComp
+    FooterComp
   }
 }
 
@@ -25,6 +25,9 @@ export default{
 }
 *{
   margin: 0;
+}
+html{
+    scroll-behavior: smooth;
 }
 body::-webkit-scrollbar{
   display: none;

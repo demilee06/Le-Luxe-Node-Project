@@ -27,10 +27,10 @@ const routes = [
     component: () => import('../views/ContactView.vue')
   },
   {
-    path: '/singleItem',
+    path: '/product/:id',
     name: 'Single Item',
     component: () => import('../views/SingleItemView.vue')
-  },
+  }
 ]
 
 const router = createRouter({
