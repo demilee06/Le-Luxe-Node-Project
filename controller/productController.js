@@ -1,4 +1,4 @@
-import{getProductsdb,getProductdb,addProductdb,updateProductdb} from '../model/productdb.js'
+import{getProductsdb,getProductdb,addProductdb,updateProductdb,deleteProductdb} from '../model/productdb.js'
 
 const getProducts = async(req,res)=>{
     res.json(await getProductsdb())//move to controller .tomorrow
@@ -32,4 +32,10 @@ const updateProduct = async(req,res)=>{
     await updateProductdb(prodName, quantity, amount, Catergory, prodUrl,prodDes,req.params.id)
 }
 
-export{getProducts,getProduct,addProduct,updateProduct}
+const deleteProduct = async(req,res)=>{
+    let {id} = req.body;
+    await deleteProductdb(req.params.id)
+    res.send('delete successfully');
+}
+
+export{getProducts,getProduct,addProduct,updateProduct,deleteProduct}

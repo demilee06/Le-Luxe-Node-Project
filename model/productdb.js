@@ -21,9 +21,12 @@ const addProductdb  = async(prodName, quantity, amount, Catergory, prodUrl,prodD
 
 }
 
+const deleteProductdb = async(prodID)=>{
+    await pool.query('DELETE FROM products WHERE prodID = ?',[prodID] )
+}
 
 const updateProductdb = async( prodName, quantity, amount, Catergory, prodUrl,prodDes,id )=>{//this order does not
     await pool.query('UPDATE products SET prodName = ?,quantity = ?,amount = ?,Catergory = ?,prodUrl = ?,prodDes = ? WHERE prodID = ?',[prodName, quantity, amount, Catergory, prodUrl,prodDes,id] )//this order matters
 }
 
-export{getProductsdb,getProductdb,addProductdb,updateProductdb}
+export{getProductsdb,getProductdb,addProductdb,updateProductdb,deleteProductdb}
