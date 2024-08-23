@@ -13,17 +13,17 @@ const getProductdb = async(id)=>{
     return(data)
 }
 
-const addProductdb  = async(prodName, quantity, amount, Catergory, prodUrl)=>{
+const addProductdb  = async(prodName, quantity, amount, Catergory, prodUrl,prodDes)=>{
     await pool.query(`
-        INSERT INTO products(prodName, quantity, amount, Catergory, prodUrl) 
-        VALUES (?,?,?,?,?)
-        `,[prodName, quantity, amount, Catergory, prodUrl])
+        INSERT INTO products(prodName, quantity, amount, Catergory, prodUrl,prodDes) 
+        VALUES (?,?,?,?,?,?)
+        `,[prodName, quantity, amount, Catergory, prodUrl,prodDes])
 
 }
 
 
-const updateProductdb = async( prodName, quantity, amount, Catergory, prodUrl,id )=>{//this order does not
-    await pool.query('UPDATE products SET prodName = ?,quantity = ?,amount = ?,Catergory = ?,prodUrl = ? WHERE prodID = ?',[prodName, quantity, amount, Catergory, prodUrl,id] )//this order matters
+const updateProductdb = async( prodName, quantity, amount, Catergory, prodUrl,prodDes,id )=>{//this order does not
+    await pool.query('UPDATE products SET prodName = ?,quantity = ?,amount = ?,Catergory = ?,prodUrl = ?,prodDes = ? WHERE prodID = ?',[prodName, quantity, amount, Catergory, prodUrl,prodDes,id] )//this order matters
 }
 
 export{getProductsdb,getProductdb,addProductdb,updateProductdb}

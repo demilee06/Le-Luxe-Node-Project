@@ -10,25 +10,26 @@ const getProduct = async(req,res)=>{
 
 
 const addProduct = async(req,res)=>{
-    let {prodName, quantity, amount, Catergory, prodUrl} = req.body; 
+    let {prodName, quantity, amount, Catergory, prodUrl,prodDes} = req.body; 
 
-    await addProductdb(prodName, quantity, amount, Catergory, prodUrl)
+    await addProductdb(prodName, quantity, amount, Catergory, prodUrl,prodDes)
     res.send('Data was inserted successfully')
 }
 
 const updateProduct = async(req,res)=>{
-    let {prodName, quantity, amount, Catergory, prodUrl} = req.body;
+    let {prodName, quantity, amount, Catergory, prodUrl,prodDes} = req.body;
     let products = await getProductdb(req.params.id)
     prodName? prodName=prodName : prodName = products.prodName
     quantity? quantity=quantity : quantity = products.quantity
     amount? amount=amount : amount = products.amount
     Catergory? Catergory=Catergory : Catergory = products.Catergory
     prodUrl? prodUrl=prodUrl : prodUrl = products.prodUrl
+    prodDes? prodDes=prodDes : prodDes  = products.prodDes
 
  
 
     res.send('Updated was succesfully');
-    await updateProductdb(prodName, quantity, amount, Catergory, prodUrl,req.params.id)
+    await updateProductdb(prodName, quantity, amount, Catergory, prodUrl,prodDes,req.params.id)
 }
 
 export{getProducts,getProduct,addProduct,updateProduct}
