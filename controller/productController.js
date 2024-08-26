@@ -33,7 +33,7 @@ const updateProduct = async(req,res)=>{
 }
 
 const deleteProduct = async(req,res)=>{
-    let {id} = req.body;
+    let {id} = req.body; 
     await deleteProductdb(req.params.id)
     res.send('delete successfully');
 }
