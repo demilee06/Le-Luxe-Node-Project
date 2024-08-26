@@ -98,7 +98,6 @@ export default {
     height: 100%;
     width: 100%;
     margin-top: 3.9rem;
-    
   }
   .inner-sec{
     color: black;
@@ -190,6 +189,9 @@ export default {
   }
   
 @media only screen and (max-width: 300px){
+  .about-sec{
+    margin-top: 3.5rem;
+  }
   .about-sec{
     background-size: cover;
     height: 100%;

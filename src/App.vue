@@ -11,6 +11,11 @@ export default{
   components:{
     NavBarComp,
     FooterComp
+  },
+  watch: {
+    $route() {
+      window.scrollTo(0, 0);
+    }
   }
 }
 

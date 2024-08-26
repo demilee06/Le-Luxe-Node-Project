@@ -192,7 +192,7 @@ export default {
     text-align: end;
   }
   .social-text{
-    margin-right: 3.9rem;
+    margin-right: 3rem;
   }
   }
 </style>

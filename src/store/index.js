@@ -87,7 +87,7 @@ export default createStore({
     async updateProduct({ commit }, product) {
       console.log(product);
       try {
-        const { data } = await axios.patch(`${apiURL}products/update/${product.id}`, product)
+        const { data } = await axios.patch(`${apiURL}products/update/${product.prodID}`, product)
         if (data.message){
           toast("Product Updated Successfully", {
             theme: "dark",
@@ -102,7 +102,7 @@ export default createStore({
     },
     async deleteProduct({commit}, product){
       try {
-        const { data } = await axios.delete(`${apiURL}products/delete/${product.id}`)
+        const { data } = await axios.delete(`${apiURL}products/delete/${product.prodID}`)
         if (data.message){
           toast("Product Deleted Successfully", {
             theme: "dark",
@@ -133,9 +133,7 @@ export default createStore({
         console.log(error)
       }
     },
-    async addUser({ commit }, user) {
-      console.log('newdata'+data.message)
-      // console.log(id);
+    async insertUser({ commit }, user) {
       try {
         const { data } = await (await axios.post(`${apiURL}users/register`, user)).data
         console.log('newdata'+data.message)
@@ -153,10 +151,10 @@ export default createStore({
         console.log(error)
       }
     },
-    async deleteUser({ commit }, userId) {
+    async deleteUser({ commit }, usersID) {
       try {
-        await axios.delete(`${apiURL}users/delete/${userId}`)
-        commit('deleteUser', userId)
+        await axios.delete(`${apiURL}users/delete/${usersID}`)
+        commit('deleteUser', usersID)
         toast("User Deleted Successfully", {
           theme: "dark",
           type: "default",
@@ -170,7 +168,7 @@ export default createStore({
     async updateUser({ commit }, user) {
       console.log(id);
       try {
-        const { data } = await axios.patch(`${apiURL}users/update/${user.userID}`, user)
+        const { data } = await axios.patch(`${apiURL}users/update/${user.usersID}`, user)
         if (data.message) {
           toast("User Updated Successfully", {
             theme: "dark",

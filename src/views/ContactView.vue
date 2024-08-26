@@ -12,16 +12,12 @@
                   <label class="name">Your message: <br><textarea name="message"></textarea></label>
                   <div class="buttons">
                     <div class="reset">
-                    <div class="reset">
                       <button type="reset" class="clear-btn">Clear</button>
-                    </div>
-                    <div class="submit">
                     </div>
                     <div class="submit">
                       <button type="submit" class="send-btn">Send</button>
                     </div>
                     </div>
-                  </div>
                   </form>
               </div>
               <div class="contact-us-sec">
@@ -102,8 +98,6 @@
          margin-left: 0px;
          margin-bottom: 1rem;
       }
-      
-      
      textarea{
          width: 24rem;
          height: 200px;
@@ -172,10 +166,16 @@
     form{
      padding: 0rem;
  }
+ .find-h3{
+    color: black;
+    font-weight: 700;
+ }
      @media only screen and (max-width: 300px){
          .inner-contact-sec{
-         background-size: 150% 100%;
+         background-size: contain;
+         background-repeat: repeat;
          height: 100%;
+        margin-top: 3rem;
          }
          .contact-sec{
          grid-template-columns: repeat(1, 1fr);
@@ -187,7 +187,7 @@
          .contact-h2 {
         text-align: left;
         font-size: 1.5rem;
-        width: 300px;
+        width: auto;
         }
          .form-sec{
          width: 16rem;
@@ -204,5 +204,29 @@
          form{
          padding: 0rem;
          }
+         .email-text, .insta-text, .facebook-text, .twitter-text{
+         color: white;
+         font-weight: 800;
+         padding:1rem;
+         margin-right: 0rem;
+         margin-top: 1rem;
+     }
+     .email-image, .insta-image, .facebook-image, .twitter-image{
+         padding: 1rem;
+         margin-left: 0rem;
+     }
+     .insta-sec, .twitter-sec{
+        width: 2rem;
+    }
+    .facebook-sec, .email-sec{
+        width: 3rem;
+    }
+    .social-links{
+         padding: 0rem;
+     }
+     .social-images{
+         text-align: end;
+         margin-right: 1em;
+     }
      }
   </style>

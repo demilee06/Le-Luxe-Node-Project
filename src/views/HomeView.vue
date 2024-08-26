@@ -20,7 +20,7 @@
            <img :src="womenSec" alt="CK" class="women-sec"/>
          </div>
          <div class="them-text">
-          <a href="/product" class="for-her"><h4>FOR HER</h4></a>
+          <a href="/product" class="for-her"><h4 class="for-her">FOR HER</h4></a>
          </div>
        </div>
        <div class="him">
@@ -28,7 +28,7 @@
            <img :src="menSec" alt="CK" class="men-sec"/>
          </div>
          <div class="them-text">
-          <a href="/product" class="for-him"> <h4>FOR HIM</h4></a>
+          <a href="/product" class="for-him"><h4 class="for-him">FOR HIM</h4></a>
          </div>
        </div>
      </div>
@@ -159,7 +159,6 @@ export default {
  }
  .product{
   height: 20rem;
-  border-radius: 3rem;
   animation-duration: 2sec;
  }
  .product:hover{
@@ -189,14 +188,18 @@ export default {
  }
 
  @media only screen and (max-width: 300px){
+  .inner-home-sect{
+   margin-top: 3.5rem;
+ }
    .text-h1{
-     font-size: 1rem;
-     padding: 1rem;
+     font-size: 2rem;
+     padding: 2rem;
    }
    .text-h4{
      font-size: 0.6rem;
+     font-weight: 700;
      padding: 0rem;
-     margin-left: 1.1rem;
+     margin-left: 2.3rem;
      margin-bottom: 1rem;
    }
    .picture{
@@ -204,23 +207,26 @@ export default {
    }
    .h2-text{
      font-size: 0.4rem;
-     padding: 0.9rem;
+     padding: 2rem;
    }
    .h2{
      font-size: 1rem;
      padding: 0.8rem;
    }
    .them-text{
-     font-size: 0.6rem;
-     padding: 0.3rem;
+     padding: 1rem;
    }
+   .for-her, .for-him{
+  font-size: 1rem;
+  font-weight: 600;
+ }
    .him-her{
     grid-template-columns: repeat(1, 1fr);
    }
    .women-sec, .men-sec{
-    border-radius: 40rem;
-    width: 15rem;
-    height: 14.5rem;
+    border-radius: 50%;
+    width: 10.5rem;
+    height: 10rem;
    }
    .products{
    grid-template-columns: repeat(1, 1fr);
@@ -246,5 +252,17 @@ export default {
     padding: 0.8rem;
     margin-bottom: 2rem;
   }
+  .carousel{
+   display: grid;
+   grid-template-columns: repeat(1, 1fr);
+ }
+ .picture{
+   width: 100%;
+   height: 100%;
+ }
+ .H-H{
+  font-size: 1rem;
+  font-weight: 700;
+ }
  }
 </style>

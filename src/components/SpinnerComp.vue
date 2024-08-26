@@ -1,117 +1,133 @@
 <template>
-    <button class="button">
-  <p class="button__text">
-    <span style="--index: 0;">L</span>
-    <span style="--index: 1;">E</span>
-    <span style="--index: 2;"> </span>
-    <span style="--index: 3;">L</span>
-    <span style="--index: 4;">U</span>
-    <span style="--index: 5;">X</span>
-    <span style="--index: 6;">E</span>
-    <span style="--index: 7;"></span>
-    <span style="--index: 8;"> </span>
-    <span style="--index: 9;"> </span>
-    <span style="--index: 10;">L</span>
-    <span style="--index: 11;">O</span>
-    <span style="--index: 12;">A</span>
-    <span style="--index: 13;">D</span>
-    <span style="--index: 14;">I</span>
-    <span style="--index: 15;">N</span>
-    <span style="--index: 16;">G </span>
-    <span style="--index: 17;"> </span>
-  </p>
-
-  <div class="button__circle">
-    <svg
-      viewBox="0 0 14 15"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      class="button__icon"
-      width="14"
-    >
-      <path
-        d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"
-        fill="currentColor"
-      ></path>
-    </svg>
-
-    <svg
-      viewBox="0 0 14 15"
-      fill="none"
-      width="14"
-      xmlns="http://www.w3.org/2000/svg"
-      class="button__icon button__icon--copy"
-    >
-      <path
-        d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"
-        fill="currentColor"
-      ></path>
-    </svg>
+  <div v-if="loading">
+    <div class="three-body">
+      <div class="three-body__dot"></div>
+      <div class="three-body__dot"></div>
+      <div class="three-body__dot"></div>
+    </div>
   </div>
-</button>
 
-  </template>
-  
-  <script>
-  export default {
-    name: 'SpinnerComp',
+</template>
+
+<script>
+export default {
+  name: 'SpinnerComp',
+  data() {
+    return {
+      loading: true
+    }
+  },
+  mounted() {
+    setTimeout(() => {
+      this.loading = false
+    }, 3000) // 3 seconds
   }
-  </script>
-  
-  <style scoped>
-.button {
-  cursor: pointer;
-  border: none;
-  background: #d69868;
-  color: #fff;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  overflow: hidden;
-  position: relative;
-  display: grid;
-  place-content: center;
-  transition:
-    background 300ms,
-    transform 200ms;
-  font-weight: 600;
+}
+</script>
+
+<style scoped>
+/* From Uiverse.io by G4b413l */ 
+.three-body {
+ --uib-size: 35px;
+ --uib-speed: 0.8s;
+ --uib-color: #5D3FD3;
+ position: relative;
+ display: inline-block;
+ height: var(--uib-size);
+ width: var(--uib-size);
+ animation: spin78236 calc(var(--uib-speed) * 3.5) infinite linear;
 }
 
-.button__text {
-  position: absolute;
-  inset: 0;
-  animation: text-rotation 8s linear infinite;
-
-}
-.button_text span {
+.three-body__dot {
  position: absolute;
- transform: rotate(calc(19deg * var(--index)));
- inset: 7px;
+ height: 100%;
+ width: 30%;
 }
 
-.button__circle {
-  position: relative;
-  width: 40px;
-  height: 40px;
-  overflow: hidden;
-  background: #fff;
-  color: black;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.three-body__dot:after {
+ content: '';
+ position: absolute;
+ height: 0%;
+ width: 100%;
+ padding-bottom: 100%;
+ background-color: var(--uib-color);
+ border-radius: 50%;
 }
 
-.button__icon--copy {
-  position: absolute;
-  transform: translate(-150%, 150%);
+.three-body__dot:nth-child(1) {
+ bottom: 5%;
+ left: 0;
+ transform: rotate(60deg);
+ transform-origin: 50% 85%;
 }
 
-
-@keyframes text-rotation {
-  to {
-    rotate: 360deg;
-  }
+.three-body__dot:nth-child(1)::after {
+ bottom: 0;
+ left: 0;
+ animation: wobble1 var(--uib-speed) infinite ease-in-out;
+ animation-delay: calc(var(--uib-speed) * -0.3);
 }
 
-  </style>
+.three-body__dot:nth-child(2) {
+ bottom: 5%;
+ right: 0;
+ transform: rotate(-60deg);
+ transform-origin: 50% 85%;
+}
+
+.three-body__dot:nth-child(2)::after {
+ bottom: 0;
+ left: 0;
+ animation: wobble1 var(--uib-speed) infinite
+    calc(var(--uib-speed) * -0.15) ease-in-out;
+}
+
+.three-body__dot:nth-child(3) {
+ bottom: -5%;
+ left: 0;
+ transform: translateX(116.666%);
+}
+
+.three-body__dot:nth-child(3)::after {
+ top: 0;
+ left: 0;
+ animation: wobble2 var(--uib-speed) infinite ease-in-out;
+}
+
+@keyframes spin78236 {
+ 0% {
+  transform: rotate(0deg);
+ }
+
+ 100% {
+  transform: rotate(360deg);
+ }
+}
+
+@keyframes wobble1 {
+ 0%,
+  100% {
+  transform: translateY(0%) scale(1);
+  opacity: 1;
+ }
+
+ 50% {
+  transform: translateY(-66%) scale(0.65);
+  opacity: 0.8;
+ }
+}
+
+@keyframes wobble2 {
+ 0%,
+  100% {
+  transform: translateY(0%) scale(1);
+  opacity: 1;
+ }
+
+ 50% {
+  transform: translateY(66%) scale(0.65);
+  opacity: 0.8;
+ }
+}
+
+</style>
