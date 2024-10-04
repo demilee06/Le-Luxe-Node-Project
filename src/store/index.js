@@ -3,10 +3,10 @@ import axios from 'axios'
 const apiURL = 'https://le-luxe-node-project.onrender.com/'
 import { toast } from 'vue3-toastify';
 import 'vue3-toastify/dist/index.css'
-/*eslint-disble */
+/*eslint-disable */
 
 axios.defaults.withCredentials = true
-/* eslint-disable*/
+
 export default createStore({
   state: {
     users: [],

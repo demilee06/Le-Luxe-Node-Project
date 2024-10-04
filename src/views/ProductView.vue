@@ -61,6 +61,7 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
+  <h1 class="product-h1">Our Products</h1>
   <div class="search-sort">
           <div class="sort-by-bar">
               <label for="Sort-by" class="sort">Sort By:</label>
@@ -125,9 +126,6 @@ methods : {
       addToCart(){
           this.$store.dispatch('addToCart')
       },
-      // purchaseAlert(prodName) {
-      //     alert(`You have purchased ${prodName}`);
-      // },
   },
   mounted() {
           this.getProducts()
@@ -166,21 +164,28 @@ padding: 1rem;
 color: black;
 text-align: left;
 font-weight: 800;
-font-size: 3rem;
-line-height: 3rem;
+font-size: 5rem;
+line-height: 5rem;
+margin-left: 6rem;
 }
-
+.product-h1{
+  font-size: 2.4rem;
+  color: black;
+  text-align: center;
+  margin-bottom: 3rem;
+}
 .text-h5 {
 color: black;
 text-align: left;
 font-weight: 700;
 padding: 1rem;
+margin-left: 5rem;
 }
 
 .for-her-picture,
 .for-him-picture {
 max-width: 100%;
-height: auto;
+height: 50vh;
 flex: 1 1 50%;
 }
 
@@ -188,7 +193,8 @@ flex: 1 1 50%;
 display: flex;
 flex-wrap: wrap;
 justify-content: center;
-padding: 2rem;
+padding: 1rem;
+font-size: 1.5rem;
 }
 
 #searchInput {
